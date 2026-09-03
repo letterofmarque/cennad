@@ -7,9 +7,10 @@ namespace Marque\Cennad\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Route;
+use Marque\Trove\Models\Torrent;
 
 /**
- * @mixin \Marque\Trove\Models\Torrent
+ * @mixin Torrent
  */
 class TorrentResource extends JsonResource
 {
@@ -30,6 +31,8 @@ class TorrentResource extends JsonResource
             'size' => $this->size,
             'size_formatted' => $this->sizeForHumans(),
             'file_count' => $this->file_count,
+            'seeders' => $this->seeders,
+            'leechers' => $this->leechers,
             'has_torrent_file' => $this->torrent_file !== null,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
