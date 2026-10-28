@@ -7,6 +7,18 @@ follows the suite's [VERSIONING.md](../../VERSIONING.md). This changelog starts
 2026-08-26 — earlier releases aren't backfilled; see `git log` or
 [docs/upgrading.md](../../docs/upgrading.md) for the story up to this point.
 
+## [4.5.0] — 2026-10-28
+
+> Works with trove 5.0 as well as 4.x, and passes the editor to trove so a moderator's edit of someone else's torrent is recorded.
+
+### Changed
+
+- **`marque/trove` widened to `^4.5|^5.0`.** Nothing here depends on what trove 5 changed: an
+  owner passes every admin check, because `isAdmin()` now means admin or above.
+- **The API's update and delete pass the caller to `TorrentService`.** On trove 5 a moderator
+  editing or deleting someone else's torrent is recorded as a staff action. On trove 4 the
+  argument is ignored and nothing changes.
+
 ## [4.4.0] — 2026-10-20
 
 > No longer requires marque/threepio directly, so it installs beside threepio 4; bans reach the API through usarrs.
